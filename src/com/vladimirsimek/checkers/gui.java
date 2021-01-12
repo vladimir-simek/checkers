@@ -1,21 +1,33 @@
 package com.vladimirsimek.checkers;
 
+import static com.vladimirsimek.checkers.Main.*;
+
 public class gui {
 
     public static void drawFields(String[][] fields) {
         /*
-        Draws the playboard.
+        Draws the play board.
          */
-        for (int i = 0; i < fields.length; i++) {
-            for (int j = 0; j < fields[i].length; j++) {
-                System.out.print(fields[i][j] + " ");
+        for (String[] field : fields) {
+            for (String s : field) {
+                System.out.print(s + " ");
             }
             System.out.println();
         }
-    } // Draws the game playground
+    } // Draws the game play board
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     } // Should clear screen
+
+    public static void isCharacterValidPlayer1(String[][] fields, int a, int b) {
+        for (String[] field : fields) {
+            for (String s : field) {
+                if (s.equals(player1)) {
+                    if ()
+                }
+            }
+        }
+    }
 }

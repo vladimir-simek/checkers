@@ -2,8 +2,7 @@ package com.vladimirsimek.checkers;
 
 import java.util.Scanner;
 
-import static com.vladimirsimek.checkers.gui.clearScreen;
-import static com.vladimirsimek.checkers.gui.drawFields;
+import static com.vladimirsimek.checkers.gui.*;
 
 public class Main {
 
@@ -50,7 +49,8 @@ public class Main {
 
         }
         clearScreen();
-        System.out.println("GGWP!");    
+        System.out.println("GGWP!");
+
 
     }
 }
