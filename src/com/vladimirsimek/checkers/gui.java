@@ -17,17 +17,39 @@ public class gui {
     } // Draws the game play board
 
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        for (int i = 0; i < 100; i++) {
+            System.out.println(" ");
+        }
     } // Should clear screen
 
-    public static void isCharacterValidPlayer1(String[][] fields, int a, int b) {
+    public static boolean isCharacterValidPlayer1(String[][] fields, int a, int b) {
+        boolean isValid = false;
         for (String[] field : fields) {
-            for (String s : field) {
-                if (s.equals(player1)) {
-                    if ()
+            for (int j = 0; j < field.length; j++) {
+                if (fields[a][b].equals(player1)) {
+                    isValid = true;
+                    break;
                 }
             }
         }
+        return isValid;
+    }
+
+    public static boolean isCoordinateValid(String rawCoordinates) {
+        boolean isValid = true;
+        int[] intCoordinates = new int[2];
+        String[] stringCoordinates = rawCoordinates.split(",");
+        for (int i = 0; i < stringCoordinates.length; i++) {
+            intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
+        }
+        if (intCoordinates[0] > 8 || intCoordinates[0] < 1) {
+            isValid = false;
+        } else if (intCoordinates[1] > 8 || intCoordinates[1] < 1) {
+            isValid = false;
+        } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
+            isValid = false;
+        }
+
+        return isValid;
     }
 }

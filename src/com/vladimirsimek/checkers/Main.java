@@ -6,8 +6,8 @@ import static com.vladimirsimek.checkers.gui.*;
 
 public class Main {
 
-    public static final String blackspot = "■";
-    public static final String whitespot = "□";
+    public static final String blackSpot = "■";
+    public static final String whiteSpot = "□";
     public static final String player1 = "©";
     public static final String player2 = "®";
     public static final String row = "-----------------------------------";
@@ -15,14 +15,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[][] fields = {
-                {whitespot,player1,whitespot,player1,whitespot,player1,whitespot,player1},
-                {player1,whitespot,player1,whitespot,player1,whitespot,player1,whitespot},
-                {whitespot,player1,whitespot,player1,whitespot,player1,whitespot,player1},
-                {blackspot,whitespot,blackspot,whitespot,blackspot,whitespot,blackspot,whitespot},
-                {whitespot,blackspot,whitespot,blackspot,whitespot,blackspot,whitespot,blackspot},
-                {player2,whitespot,player2,whitespot,player2,whitespot,player2,whitespot},
-                {whitespot,player2,whitespot,player2,whitespot,player2,whitespot,player2},
-                {player2,whitespot,player2,whitespot,player2,whitespot,player2,whitespot}
+                {whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1},
+                {player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot},
+                {whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1},
+                {blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot},
+                {whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot},
+                {player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot},
+                {whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2},
+                {player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot}
         };
         drawFields(fields);
 
@@ -45,8 +45,8 @@ public class Main {
                 System.out.println("GGWP!");
             }
             System.out.println(row);
-
-
+            System.out.println("Write down coordinates \"x,y\".");
+            String rawCoordinates = sc.next();
         }
         clearScreen();
         System.out.println("GGWP!");
