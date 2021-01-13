@@ -20,6 +20,7 @@ public class gui {
         for (int i = 0; i < 100; i++) {
             System.out.println(" ");
         }
+        System.out.flush();
     } // Should clear screen
 
     public static boolean isCharacterValidPlayer1(String[][] fields, int a, int b) {
@@ -39,17 +40,28 @@ public class gui {
         boolean isValid = true;
         int[] intCoordinates = new int[2];
         String[] stringCoordinates = rawCoordinates.split(",");
-        for (int i = 0; i < stringCoordinates.length; i++) {
-            intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
-        }
-        if (intCoordinates[0] > 8 || intCoordinates[0] < 1) {
-            isValid = false;
-        } else if (intCoordinates[1] > 8 || intCoordinates[1] < 1) {
-            isValid = false;
-        } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
+        try {
+            for (int i = 0; i < stringCoordinates.length; i++) {
+                intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
+            }
+
+            if (intCoordinates[0] > 8 || intCoordinates[0] < 1) {
+                isValid = false;
+            } else if (intCoordinates[1] > 8 || intCoordinates[1] < 1) {
+                isValid = false;
+            } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
+                isValid = false;
+            }
+        } catch (Exception e) {
             isValid = false;
         }
 
         return isValid;
+    }
+
+    public static void notValidCoordinate() {
+        System.out.println(row);
+        System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
+        rawCoordinates = sc.next();
     }
 }

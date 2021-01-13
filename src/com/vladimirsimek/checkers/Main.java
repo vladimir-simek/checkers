@@ -11,9 +11,10 @@ public class Main {
     public static final String player1 = "©";
     public static final String player2 = "®";
     public static final String row = "-----------------------------------";
+    public static String rawCoordinates;
+    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         String[][] fields = {
                 {whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1},
                 {player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot},
@@ -28,8 +29,10 @@ public class Main {
 
         int player1amount = 1;
         int player2amount = 1;
+        int runTimeCycles = 0;
 
         while (player1amount != 0 || player2amount != 0) {
+            runTimeCycles++;
             player1amount = 0;
             player2amount = 0;
             for (String[] field : fields) { // Checks if there are still some players left
@@ -42,15 +45,24 @@ public class Main {
                 }
             } if (player1amount == 0 || player2amount == 0) { // If someone lost all checkers the game will end
                 clearScreen();
-                System.out.println("GGWP!");
+                System.out.println("Good game well played!");
             }
             System.out.println(row);
             System.out.println("Write down coordinates \"x,y\".");
-            String rawCoordinates = sc.next();
+            rawCoordinates = sc.next();
+
+            while (!isCoordinateValid(rawCoordinates)){
+                notValidCoordinate();
+            }
+            if (isCoordinateValid(rawCoordinates)) {
+                if (runTimeCycles % 2 == 0){
+
+                } else {
+                    while (!isCharacterValidPlayer1(fields, ))
+                }
+            }
         }
         clearScreen();
-        System.out.println("GGWP!");
-
-
+        System.out.println("Good game well played!");
     }
 }
