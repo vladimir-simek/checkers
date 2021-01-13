@@ -58,15 +58,7 @@ public class Main {
                 notValidCoordinate();
             }
             if (isCoordinateValid(fields, rawCoordinates)) {
-                if (runTimeCycles % 2 == 0){
-                    while (!isCharacterValidPlayer(fields, intCoordinates[0],intCoordinates[1] )) {
-                        notValidCoordinate();
-                    }
-                } else {
-                    while (!isCharacterValidPlayer(fields, intCoordinates[0],intCoordinates[1] )) {
-                        notValidCoordinate();
-                    }
-                }
+                System.out.println("NICENEICNIENICNE");
             }
         }
         clearScreen();

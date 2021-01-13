@@ -39,9 +39,9 @@ public class gui {
                 intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
             }
 
-            if (intCoordinates[0] > 8 || intCoordinates[0] < 1) {
+            if (intCoordinates[0] > 7 || intCoordinates[0] < 0) {
                 isValid = false;
-            } else if (intCoordinates[1] > 8 || intCoordinates[1] < 1) {
+            } else if (intCoordinates[1] > 7 || intCoordinates[1] < 0) {
                 isValid = false;
             } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
                 isValid = false;
@@ -59,7 +59,7 @@ public class gui {
                     c++;
                 }
             } else {
-                if (fields[a][b].equals(player1)) {
+                if (fields[a][b].equals(player2)) {
                     isValid = true;
                     c++;
                 }
