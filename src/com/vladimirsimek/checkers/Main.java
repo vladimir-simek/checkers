@@ -13,6 +13,8 @@ public class Main {
     public static final String row = "-----------------------------------";
     public static String rawCoordinates;
     public static Scanner sc = new Scanner(System.in);
+    public static int runTimeCycles = 0;
+
 
     public static void main(String[] args) {
         String[][] fields = {
@@ -29,7 +31,6 @@ public class Main {
 
         int player1amount = 1;
         int player2amount = 1;
-        int runTimeCycles = 0;
 
         while (player1amount != 0 || player2amount != 0) {
             runTimeCycles++;
@@ -48,17 +49,23 @@ public class Main {
                 System.out.println("Good game well played!");
             }
             System.out.println(row);
-            System.out.println("Write down coordinates \"x,y\".");
+            if (runTimeCycles % 2 == 0) {
+                System.out.println("Write down coordinates for player number 2 \"x,y\".");
+            } else System.out.println("Write down coordinates for player number 1 \"x,y\".");
             rawCoordinates = sc.next();
 
-            while (!isCoordinateValid(rawCoordinates)){
+            while (!isCoordinateValid(fields, rawCoordinates)){
                 notValidCoordinate();
             }
-            if (isCoordinateValid(rawCoordinates)) {
+            if (isCoordinateValid(fields, rawCoordinates)) {
                 if (runTimeCycles % 2 == 0){
-
+                    while (!isCharacterValidPlayer(fields, intCoordinates[0],intCoordinates[1] )) {
+                        notValidCoordinate();
+                    }
                 } else {
-                    while (!isCharacterValidPlayer1(fields, ))
+                    while (!isCharacterValidPlayer(fields, intCoordinates[0],intCoordinates[1] )) {
+                        notValidCoordinate();
+                    }
                 }
             }
         }

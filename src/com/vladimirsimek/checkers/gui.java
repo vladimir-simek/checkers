@@ -4,6 +4,8 @@ import static com.vladimirsimek.checkers.Main.*;
 
 public class gui {
 
+    public static int[] intCoordinates = new int[2];
+
     public static void drawFields(String[][] fields) {
         /*
         Draws the play board.
@@ -23,22 +25,14 @@ public class gui {
         System.out.flush();
     } // Should clear screen
 
-    public static boolean isCharacterValidPlayer1(String[][] fields, int a, int b) {
+    public static boolean isCharacterValidPlayer(String[][] fields, int a, int b) {
         boolean isValid = false;
-        for (String[] field : fields) {
-            for (int j = 0; j < field.length; j++) {
-                if (fields[a][b].equals(player1)) {
-                    isValid = true;
-                    break;
-                }
-            }
-        }
+
         return isValid;
     }
 
-    public static boolean isCoordinateValid(String rawCoordinates) {
+    public static boolean isCoordinateValid(String[][] fields, String rawCoordinates) {
         boolean isValid = true;
-        int[] intCoordinates = new int[2];
         String[] stringCoordinates = rawCoordinates.split(",");
         try {
             for (int i = 0; i < stringCoordinates.length; i++) {
@@ -54,6 +48,30 @@ public class gui {
             }
         } catch (Exception e) {
             isValid = false;
+        }
+        if (isValid) {
+            int a = intCoordinates[0];
+            int b = intCoordinates[1];
+            int c = 0;
+            if (runTimeCycles % 2 == 0) {
+                if (fields[a][b].equals(player1)) {
+                    isValid = true;
+                    c++;
+                }
+            } else {
+                if (fields[a][b].equals(player1)) {
+                    isValid = true;
+                    c++;
+                }
+            }
+            if (c == 0) {
+                isValid = false;
+            } else if (c == 2) {
+                isValid = false;
+            } else if (c == 1) {
+                isValid = true;
+            }
+
         }
 
         return isValid;
