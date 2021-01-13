@@ -18,14 +18,14 @@ public class Main {
 
     public static void main(String[] args) {
         String[][] fields = {
-                {whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1},
-                {player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot},
-                {whiteSpot,player1,whiteSpot,player1,whiteSpot,player1,whiteSpot,player1},
-                {blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot},
-                {whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot,whiteSpot,blackSpot},
-                {player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot},
-                {whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2},
-                {player2,whiteSpot,player2,whiteSpot,player2,whiteSpot,player2,whiteSpot}
+                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
+                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
+                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
+                {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
+                {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
+                {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot},
+                {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
+                {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot}
         };
         drawFields(fields);
 
@@ -44,7 +44,8 @@ public class Main {
                         player2amount++;
                     }
                 }
-            } if (player1amount == 0 || player2amount == 0) { // If someone lost all checkers the game will end
+            }
+            if (player1amount == 0 || player2amount == 0) { // If someone lost all checkers the game will end
                 clearScreen();
                 System.out.println("Good game well played!");
             }
@@ -82,15 +83,13 @@ public class Main {
                         c++;
                     }
                 } else {
-                    if (fields[a][b].equals(player2)) {
-                        isValidData = true;
-                        c++;
-                    }
+                    isValidData = true;
+                    c++;
                 }
 
 
             }
-            if (isValidData){
+            if (isValidData) {
                 System.out.println("ez");
             }
         }
