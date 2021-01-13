@@ -54,11 +54,44 @@ public class Main {
             } else System.out.println("Write down coordinates for player number 1 \"x,y\".");
             rawCoordinates = sc.next();
 
-            while (!isCoordinateValid(fields, rawCoordinates)){
-                notValidCoordinate();
+            boolean isValid = true;
+            String[] stringCoordinates = rawCoordinates.split(",");
+            try {
+                for (int i = 0; i < stringCoordinates.length; i++) {
+                    intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
+                }
+
+                if (intCoordinates[0] > 7 || intCoordinates[0] < 0) {
+                    isValid = false;
+                } else if (intCoordinates[1] > 7 || intCoordinates[1] < 0) {
+                    isValid = false;
+                } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
+                    isValid = false;
+                }
+            } catch (Exception e) {
+                isValid = false;
             }
-            if (isCoordinateValid(fields, rawCoordinates)) {
-                System.out.println("NICENEICNIENICNE");
+            boolean isValidData = false;
+            if (isValid) {
+                int a = intCoordinates[0];
+                int b = intCoordinates[1];
+                int c = 0;
+                if (runTimeCycles % 2 == 0) {
+                    if (fields[a][b].equals(player1)) {
+                        isValidData = true;
+                        c++;
+                    }
+                } else {
+                    if (fields[a][b].equals(player2)) {
+                        isValidData = true;
+                        c++;
+                    }
+                }
+
+
+            }
+            if (isValidData){
+                System.out.println("ez");
             }
         }
         clearScreen();

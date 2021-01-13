@@ -64,13 +64,7 @@ public class gui {
                     c++;
                 }
             }
-            if (c == 0) {
-                isValid = false;
-            } else if (c == 2) {
-                isValid = false;
-            } else if (c == 1) {
-                isValid = true;
-            }
+
 
         }
 
