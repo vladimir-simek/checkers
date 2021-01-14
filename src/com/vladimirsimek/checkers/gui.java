@@ -49,31 +49,29 @@ public class gui {
         } catch (Exception e) {
             isValid = false;
         }
+        boolean isValidData = false;
         if (isValid) {
             int a = intCoordinates[0];
             int b = intCoordinates[1];
-            int c = 0;
             if (runTimeCycles % 2 == 0) {
-                if (fields[a][b].equals(player1)) {
-                    isValid = true;
-                    c++;
-                }
-            } else {
                 if (fields[a][b].equals(player2)) {
-                    isValid = true;
-                    c++;
+                    isValidData = true;
                 }
+            } else if(fields[a][b].equals(player1)) {
+                isValidData = true;
             }
 
 
         }
-
-        return isValid;
+        return isValidData;
     }
 
     public static void notValidCoordinate() {
-        System.out.println(row);
-        System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
-        rawCoordinates = sc.next();
+        while (!isCoordinateValid(fields, rawCoordinates)) {
+            rawCoordinates = sc.next();
+            System.out.println(row);
+            System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
+        }
+        System.out.println("ez");
     }
 }

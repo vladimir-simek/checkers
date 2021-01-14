@@ -14,19 +14,19 @@ public class Main {
     public static String rawCoordinates;
     public static Scanner sc = new Scanner(System.in);
     public static int runTimeCycles = 2;
+    public static String[][] fields = {
+            {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
+            {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot},
+            {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
+            {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
+            {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
+            {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
+            {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
+            {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot}
+    };
 
 
     public static void main(String[] args) {
-        String[][] fields = {
-                {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
-                {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot},
-                {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
-                {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
-                {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
-                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
-                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
-                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot}
-        };
         drawFields(fields);
 
         int player2amount = 1;
@@ -54,43 +54,10 @@ public class Main {
                 System.out.println("Write down coordinates for player number 2 \"x,y\".");
             } else System.out.println("Write down coordinates for player number 1 \"x,y\".");
             rawCoordinates = sc.next();
-
-            boolean isValid = true;
-            String[] stringCoordinates = rawCoordinates.split(",");
-            try {
-                for (int i = 0; i < stringCoordinates.length; i++) {
-                    intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
-                }
-
-                if (intCoordinates[0] > 7 || intCoordinates[0] < 0) {
-                    isValid = false;
-                } else if (intCoordinates[1] > 7 || intCoordinates[1] < 0) {
-                    isValid = false;
-                } else if (rawCoordinates.length() < 1 || rawCoordinates.length() > 3) {
-                    isValid = false;
-                }
-            } catch (Exception e) {
-                isValid = false;
-            }
-            boolean isValidData = false;
-            if (isValid) {
-                int a = intCoordinates[0];
-                int b = intCoordinates[1];
-                int c = 0;
-                if (runTimeCycles % 2 == 0) {
-                    if (fields[a][b].equals(player2)) {
-                        isValidData = true;
-                        c++;
-                    }
-                } else if(fields[a][b].equals(player1)) {
-                    isValidData = true;
-                    c++;
-                }
-
-
-            }
-            if (isValidData) {
+            if (isCoordinateValid(fields, rawCoordinates)) {
                 System.out.println("ez");
+            } else {
+                notValidCoordinate();
             }
         }
         clearScreen();
