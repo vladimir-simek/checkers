@@ -13,7 +13,7 @@ public class Main {
     public static final String row = "-----------------------------------";
     public static String rawCoordinates;
     public static Scanner sc = new Scanner(System.in);
-    public static int runTimeCycles = 0;
+    public static int runTimeCycles = 2;
 
 
     public static void main(String[] args) {
@@ -82,7 +82,7 @@ public class Main {
                         isValidData = true;
                         c++;
                     }
-                } else {
+                } else if(fields[a][b].equals(player2)) {
                     isValidData = true;
                     c++;
                 }
