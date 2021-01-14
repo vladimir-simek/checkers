@@ -8,8 +8,8 @@ public class Main {
 
     public static final String blackSpot = "■";
     public static final String whiteSpot = "□";
-    public static final String player1 = "©";
-    public static final String player2 = "®";
+    public static final String player2 = "©";
+    public static final String player1 = "®";
     public static final String row = "-----------------------------------";
     public static String rawCoordinates;
     public static Scanner sc = new Scanner(System.in);
@@ -18,34 +18,34 @@ public class Main {
 
     public static void main(String[] args) {
         String[][] fields = {
-                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
-                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
-                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
-                {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
-                {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
+                {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
                 {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot},
                 {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
-                {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot}
+                {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
+                {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
+                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
+                {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
+                {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot}
         };
         drawFields(fields);
 
-        int player1amount = 1;
         int player2amount = 1;
+        int player1amount = 1;
 
-        while (player1amount != 0 || player2amount != 0) {
+        while (player2amount != 0 || player1amount != 0) {
             runTimeCycles++;
-            player1amount = 0;
             player2amount = 0;
-            for (String[] field : fields) { // Checks if there are still some players left
+            player1amount = 0;
+            for (String[] field : fields) { // Checks if there are still some player2 left
                 for (String s : field) {
-                    if (s.equals(player1)) {
-                        player1amount++;
-                    } else if (s.equals(player2)) {
+                    if (s.equals(player2)) {
                         player2amount++;
+                    } else if (s.equals(player1)) {
+                        player1amount++;
                     }
                 }
             }
-            if (player1amount == 0 || player2amount == 0) { // If someone lost all checkers the game will end
+            if (player2amount == 0 || player1amount == 0) { // If someone lost all checkers the game will end
                 clearScreen();
                 System.out.println("Good game well played!");
             }
@@ -78,11 +78,11 @@ public class Main {
                 int b = intCoordinates[1];
                 int c = 0;
                 if (runTimeCycles % 2 == 0) {
-                    if (fields[a][b].equals(player1)) {
+                    if (fields[a][b].equals(player2)) {
                         isValidData = true;
                         c++;
                     }
-                } else if(fields[a][b].equals(player2)) {
+                } else if(fields[a][b].equals(player1)) {
                     isValidData = true;
                     c++;
                 }
