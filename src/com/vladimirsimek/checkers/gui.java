@@ -27,14 +27,9 @@ public class gui {
         for (int i = 0; i < 100; i++) {
             System.out.println(" ");
         }
+        System.out.print("\033[H\033[2J");
         System.out.flush();
     } // Should clear screen
-
-    public static boolean isCharacterValidPlayer(String[][] fields, int a, int b) {
-        boolean isValid = false;
-
-        return isValid;
-    }
 
     public static boolean isCoordinateValid(String[][] fields, String rawCoordinates) {
         boolean isValid = true;
@@ -65,11 +60,9 @@ public class gui {
             } else if(fields[a][b].equals(player1)) {
                 isValidData = true;
             }
-
-
         }
         return isValidData;
-    }
+    } // Checks if input of coordination is valid
 
     public static void notValidCoordinate() {
         while (!isCoordinateValid(fields, rawCoordinates)) {
@@ -78,30 +71,32 @@ public class gui {
             System.out.println(row);
             rawCoordinates = sc.next();
         }
-    }
+    } // Tells player that his input is invalid and will require a new one
 
     public static void gameOver1Won() {
+        clearScreen();
         System.out.println("Game over!");
         System.out.println("Player 1 won the game! Congratulations!");
         System.out.println(row);
         System.out.println("It took you total of " + (runTimeCycles - 2) + " rounds to beat player 2.");
         System.exit(0);
-    }
+    } // Ends the game if Player 1 won
 
     public static void  gameOver2Won() {
+        clearScreen();
         System.out.println("Game over!");
         System.out.println("Player 2 won the game! Congratulations!");
         System.out.println(row);
         System.out.println("It took you total of " + (runTimeCycles - 2) + " rounds to beat player 1.");
         System.exit(0);
-    }
+    } // Ends the game if Player 2 won
 
     public static void areHerePlayers() {
         player2amount = 0;
         player1amount = 0;
         playersLeft = false;
         int index = 0;
-        for (String[] field : fields) { // Checks if there are still some players left
+        for (String[] field : fields) {
             for (String s : field) {
                 if (s.equals(player2)) {
                     player2amount++;
@@ -125,5 +120,5 @@ public class gui {
         }  else if (index == 3) {
             playersLeft = true;
         }
-    }
+    } // Checks if are any players remaining, if yes game continues, if not gameOver() will be called
 }
