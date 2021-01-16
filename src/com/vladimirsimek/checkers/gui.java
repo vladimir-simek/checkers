@@ -10,8 +10,13 @@ public class gui {
         /*
         Draws the play board.
          */
-        for (String[] field : fields) {
-            for (String s : field) {
+        for (int i = 0; i < fields.length; i++) {
+            String[] field = fields[i];
+            if (i==i) {
+                System.out.print(i + " ");
+            }
+            for (int j = 0; j < field.length; j++) {
+                String s = field[j];
                 System.out.print(s + " ");
             }
             System.out.println();
@@ -68,10 +73,57 @@ public class gui {
 
     public static void notValidCoordinate() {
         while (!isCoordinateValid(fields, rawCoordinates)) {
-            rawCoordinates = sc.next();
             System.out.println(row);
             System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
+            System.out.println(row);
+            rawCoordinates = sc.next();
         }
-        System.out.println("ez");
+    }
+
+    public static void gameOver1Won() {
+        System.out.println("Game over!");
+        System.out.println("Player 1 won the game! Congratulations!");
+        System.out.println(row);
+        System.out.println("It took you total of " + (runTimeCycles - 2) + " rounds to beat player 2.");
+        System.exit(0);
+    }
+
+    public static void  gameOver2Won() {
+        System.out.println("Game over!");
+        System.out.println("Player 2 won the game! Congratulations!");
+        System.out.println(row);
+        System.out.println("It took you total of " + (runTimeCycles - 2) + " rounds to beat player 1.");
+        System.exit(0);
+    }
+
+    public static void areHerePlayers() {
+        player2amount = 0;
+        player1amount = 0;
+        playersLeft = false;
+        int index = 0;
+        for (String[] field : fields) { // Checks if there are still some players left
+            for (String s : field) {
+                if (s.equals(player2)) {
+                    player2amount++;
+                } else if (s.equals(player1)) {
+                    player1amount++;
+                }
+            }
+        }
+        if (player2amount == 0 && player1amount > 0) {
+            index = 1;
+        } else if (player1amount == 0 && player2amount > 0) {
+            index = 2;
+        } else if (player2amount > 0 && player1amount > 0) {
+            index = 3;
+        }
+
+        if (index == 1) {
+            gameOver1Won();
+        } else if (index == 2) {
+            gameOver2Won();
+        }  else if (index == 3) {
+            playersLeft = true;
+        }
     }
 }

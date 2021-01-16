@@ -24,27 +24,17 @@ public class Main {
             {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
             {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot}
     };
+    public static int player2amount = 12;
+    public static int player1amount = 12;
+    public static boolean playersLeft = true;
 
 
     public static void main(String[] args) {
         drawFields(fields);
 
-        int player2amount = 1;
-        int player1amount = 1;
-
-        while (player2amount != 0 || player1amount != 0) {
+        while (playersLeft) {
             runTimeCycles++;
-            player2amount = 0;
-            player1amount = 0;
-            for (String[] field : fields) { // Checks if there are still some player2 left
-                for (String s : field) {
-                    if (s.equals(player2)) {
-                        player2amount++;
-                    } else if (s.equals(player1)) {
-                        player1amount++;
-                    }
-                }
-            }
+            areHerePlayers();
             if (player2amount == 0 || player1amount == 0) { // If someone lost all checkers the game will end
                 clearScreen();
                 System.out.println("Good game well played!");
@@ -60,7 +50,5 @@ public class Main {
                 notValidCoordinate();
             }
         }
-        clearScreen();
-        System.out.println("Good game well played!");
     }
 }
