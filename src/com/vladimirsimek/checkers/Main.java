@@ -33,6 +33,8 @@ public class Main {
         drawGameName();
         while (playersLeft) {
             System.out.println(row);
+            drawProgressBars();
+            System.out.println(row);
             drawFields(fields);
             runTimeCycles++;
             areHerePlayers();
