@@ -12,11 +12,8 @@ public class gui {
          */
         for (int i = 0; i < fields.length; i++) {
             String[] field = fields[i];
-            if (i==i) {
-                System.out.print(i + " ");
-            }
-            for (int j = 0; j < field.length; j++) {
-                String s = field[j];
+            System.out.print(i + " ");
+            for (String s : field) {
                 System.out.print(s + " ");
             }
             System.out.println();
