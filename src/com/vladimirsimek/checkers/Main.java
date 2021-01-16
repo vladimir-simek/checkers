@@ -30,9 +30,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        drawFields(fields);
-
+        drawGameName();
         while (playersLeft) {
+            System.out.println(row);
+            drawFields(fields);
             runTimeCycles++;
             areHerePlayers();
             System.out.println(row);
@@ -50,6 +51,7 @@ public class Main {
                     System.out.println("You selected checker on [" + rawCoordinates + "].");
                 }
             }
+            System.out.println("END OF ROUND");
         }
     }
 }

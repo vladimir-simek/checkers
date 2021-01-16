@@ -6,7 +6,16 @@ public class gui {
 
     public static int[] intCoordinates = new int[2];
 
+    public static void drawGameName() {
+        System.out.println("  _______           __                  __   ________                                ___                    _         \n" +
+                " / ___/ /  ___ ____/ /_____ _______    / /  /_  __/ /  ___    ___  ___ _    __   ___/ (_)_ _  ___ ___  ___ (_)__  ___ \n" +
+                "/ /__/ _ \\/ -_) __/  '_/ -_) __(_-<   / /    / / / _ \\/ -_)  / _ \\/ -_) |/|/ /  / _  / /  ' \\/ -_) _ \\(_-</ / _ \\/ _ \\\n" +
+                "\\___/_//_/\\__/\\__/_/\\_\\\\__/_/ /___/  / /    /_/ /_//_/\\__/  /_//_/\\__/|__,__/   \\_,_/_/_/_/_/\\__/_//_/___/_/\\___/_//_/\n" +
+                "                                    /_/                                                                               ");
+    }
+
     public static void drawFields(String[][] fields) {
+        System.out.println("⚫ 0 1 2  3 4 5 6 7");
         for (int i = 0; i < fields.length; i++) {
             String[] field = fields[i];
             System.out.print(i + " ");
@@ -28,6 +37,13 @@ public class gui {
     public static boolean isCoordinateValid(String[][] fields, String rawCoordinates) {
         boolean isValid = true;
         String[] stringCoordinates = rawCoordinates.split(",");
+        try {
+            char a = rawCoordinates.charAt(0);
+            char b = rawCoordinates.charAt(1);
+            char c = rawCoordinates.charAt(2);
+        } catch (Exception e) {
+            isValid = false;
+        }
         try {
             for (int i = 0; i < stringCoordinates.length; i++) {
                 intCoordinates[i] = Integer.parseInt(stringCoordinates[i]);
@@ -63,7 +79,7 @@ public class gui {
             System.out.println(row);
             System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
             rawCoordinates = sc.next();
-        }
+            }
     } // Tells player that his input is invalid and will require a new one
 
     public static void gameOver1Won() {
