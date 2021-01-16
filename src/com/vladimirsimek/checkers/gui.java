@@ -7,9 +7,6 @@ public class gui {
     public static int[] intCoordinates = new int[2];
 
     public static void drawFields(String[][] fields) {
-        /*
-        Draws the play board.
-         */
         for (int i = 0; i < fields.length; i++) {
             String[] field = fields[i];
             System.out.print(i + " ");
@@ -65,7 +62,6 @@ public class gui {
         while (!isCoordinateValid(fields, rawCoordinates)) {
             System.out.println(row);
             System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
-            System.out.println(row);
             rawCoordinates = sc.next();
         }
     } // Tells player that his input is invalid and will require a new one

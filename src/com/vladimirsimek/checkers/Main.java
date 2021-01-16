@@ -35,19 +35,20 @@ public class Main {
         while (playersLeft) {
             runTimeCycles++;
             areHerePlayers();
-            if (player2amount == 0 || player1amount == 0) { // If someone lost all checkers the game will end
-                clearScreen();
-                System.out.println("Good game well played!");
-            }
             System.out.println(row);
             if (runTimeCycles % 2 == 0) {
                 System.out.println("Write down coordinates for player number 2 \"x,y\".");
             } else System.out.println("Write down coordinates for player number 1 \"x,y\".");
             rawCoordinates = sc.next();
             if (isCoordinateValid(fields, rawCoordinates)) {
-                System.out.println("ez");
+                System.out.println(row);
+                System.out.println("You selected checker on [" + rawCoordinates + "].");
             } else {
                 notValidCoordinate();
+                if (isCoordinateValid(fields, rawCoordinates)) {
+                    System.out.println(row);
+                    System.out.println("You selected checker on [" + rawCoordinates + "].");
+                }
             }
         }
     }
