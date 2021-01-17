@@ -208,10 +208,33 @@ public class gui {
         if (lowLeftOrRight.equals("a") || lowLeftOrRight.equals("b")) {
             isValid = true;
         }
+
+        if (isValid) {
+            int[] intCoordinatesLeft = new int[2];
+            int[] intCoordinatesRight = new int[2];
+            if (runTimeCycles % 2 == 0) {
+                if (lowLeftOrRight.equals("a")) {
+                    intCoordinatesLeft[0] = intCoordinatesLeft[0]+1;
+                    intCoordinatesLeft[1] = intCoordinatesLeft[1]-1;
+                } else {
+                    intCoordinatesRight[0] = intCoordinatesRight[0]+1;
+                    intCoordinatesRight[1] = intCoordinatesRight[1]+1;
+                }
+            } else {
+                if (lowLeftOrRight.equals("a")) {
+                    intCoordinatesLeft[0] = intCoordinatesLeft[0]-1;
+                    intCoordinatesLeft[1] = intCoordinatesLeft[1]-1;
+                } else {
+                    intCoordinatesRight[0] = intCoordinatesRight[0]-1;
+                    intCoordinatesRight[1] =intCoordinatesRight[1]+1;
+                }
+            }
+        }
+
         return isValid;
     }
 
-    public static void notValidLeftOrRight1() {
+    public static void notValidLeftOrRight() {
         while (!isLeftOrRightValidPlayer(fields, rawCoordinates)) {
             System.out.println(row);
             System.out.println("Your input or side you have chosen is invalid. Enter a new one:");

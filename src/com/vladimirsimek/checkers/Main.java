@@ -62,7 +62,12 @@ public class Main {
             leftOrRight = sc.next();
             if (isLeftOrRightValidPlayer(fields, leftOrRight)) {
 
-            } else
+            } else {
+                notValidLeftOrRight();
+                if (isLeftOrRightValidPlayer(fields, leftOrRight)) {
+
+                }
+            }
 
                 System.out.println("END OF ROUND");
         }
