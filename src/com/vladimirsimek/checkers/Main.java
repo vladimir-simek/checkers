@@ -6,23 +6,25 @@ import static com.vladimirsimek.checkers.gui.*;
 
 public class Main {
 
-    public static final String blackSpot = "■";
-    public static final String whiteSpot = "□";
-    public static final String player2 = "©";
-    public static final String player1 = "®";
+    public static final String BLACK_SPOT = "■";
+    public static final String WHITE_SPOT = "□";
+    public static final String PLAYER_2 = "©";
+    public static final String PLAYER_1 = "®";
     public static final String row = "-----------------------------------";
     public static String rawCoordinates;
+    public static String leftOrRight;
     public static Scanner sc = new Scanner(System.in);
     public static int runTimeCycles = 2;
+    public static boolean canMove = true;
     public static String[][] fields = {
-            {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
-            {player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot},
-            {whiteSpot, player2, whiteSpot, player2, whiteSpot, player2, whiteSpot, player2},
-            {blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot},
-            {whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot, whiteSpot, blackSpot},
-            {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot},
-            {whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1},
-            {player1, whiteSpot, player1, whiteSpot, player1, whiteSpot, player1, whiteSpot}
+            {WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2},
+            {PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT},
+            {WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2, WHITE_SPOT, PLAYER_2},
+            {BLACK_SPOT, WHITE_SPOT, BLACK_SPOT, WHITE_SPOT, BLACK_SPOT, WHITE_SPOT, BLACK_SPOT, WHITE_SPOT},
+            {WHITE_SPOT, BLACK_SPOT, WHITE_SPOT, BLACK_SPOT, WHITE_SPOT, BLACK_SPOT, WHITE_SPOT, BLACK_SPOT},
+            {PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT},
+            {WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1},
+            {PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT, PLAYER_1, WHITE_SPOT}
     };
     public static int player2amount = 12;
     public static int player1amount = 12;
@@ -32,6 +34,7 @@ public class Main {
     public static void main(String[] args) {
         drawGameName();
         while (playersLeft) {
+            canMove = true;
             System.out.println(row);
             drawProgressBars();
             System.out.println(row);
@@ -53,7 +56,15 @@ public class Main {
                     System.out.println("You selected checker on [" + rawCoordinates + "].");
                 }
             }
-            System.out.println("END OF ROUND");
+            System.out.println("Now choose where you want to move:");
+            System.out.println("A) Left");
+            System.out.println("B) Right");
+            leftOrRight = sc.next();
+            if (isLeftOrRightValidPlayer(fields, leftOrRight)) {
+
+            } else
+
+                System.out.println("END OF ROUND");
         }
     }
 }

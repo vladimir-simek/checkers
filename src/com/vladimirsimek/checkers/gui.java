@@ -1,5 +1,7 @@
 package com.vladimirsimek.checkers;
 
+import java.util.Locale;
+
 import static com.vladimirsimek.checkers.Main.*;
 
 public class gui {
@@ -63,10 +65,10 @@ public class gui {
             int a = intCoordinates[0];
             int b = intCoordinates[1];
             if (runTimeCycles % 2 == 0) {
-                if (fields[a][b].equals(player2)) {
+                if (fields[a][b].equals(PLAYER_2)) {
                     isValidData = true;
                 }
-            } else if(fields[a][b].equals(player1)) {
+            } else if (fields[a][b].equals(PLAYER_1)) {
                 isValidData = true;
             }
         }
@@ -78,7 +80,7 @@ public class gui {
             System.out.println(row);
             System.out.println("Coordinates that you entered are not valid! Please enter valid coordinates \"x,y\"");
             rawCoordinates = sc.next();
-            }
+        }
     } // Tells player that his input is invalid and will require a new one
 
     public static void gameOver1Won() {
@@ -90,7 +92,7 @@ public class gui {
         System.exit(0);
     } // Ends the game if Player 1 won
 
-    public static void  gameOver2Won() {
+    public static void gameOver2Won() {
         clearScreen();
         System.out.println("Game over!");
         System.out.println("Player 2 won the game! Congratulations!");
@@ -106,9 +108,9 @@ public class gui {
         int index = 0;
         for (String[] field : fields) {
             for (String s : field) {
-                if (s.equals(player2)) {
+                if (s.equals(PLAYER_2)) {
                     player2amount++;
-                } else if (s.equals(player1)) {
+                } else if (s.equals(PLAYER_1)) {
                     player1amount++;
                 }
             }
@@ -125,7 +127,7 @@ public class gui {
             gameOver1Won();
         } else if (index == 2) {
             gameOver2Won();
-        }  else if (index == 3) {
+        } else if (index == 3) {
             playersLeft = true;
         }
     } // Checks if are any players remaining, if yes game continues, if not gameOver() will be called
@@ -135,9 +137,9 @@ public class gui {
         player1amount = 0;
         for (String[] field : fields) {
             for (String s : field) {
-                if (s.equals(player2)) {
+                if (s.equals(PLAYER_2)) {
                     player2amount++;
-                } else if (s.equals(player1)) player1amount++;
+                } else if (s.equals(PLAYER_1)) player1amount++;
             }
         }
         System.out.println("Progress bar for Player 1:");
@@ -195,6 +197,25 @@ public class gui {
             System.out.println("[######################  ] 91.6%");
         } else if (player1amount == 0) {
             System.out.println("[########################] 100%");
+        }
+    } // Counts players and draws progress bar
+
+    public static boolean isLeftOrRightValidPlayer(String[][] fields, String leftOrRight) {
+        boolean isValid = false;
+
+        String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
+
+        if (lowLeftOrRight.equals("a") || lowLeftOrRight.equals("b")) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    public static void notValidLeftOrRight1() {
+        while (!isLeftOrRightValidPlayer(fields, rawCoordinates)) {
+            System.out.println(row);
+            System.out.println("Your input or side you have chosen is invalid. Enter a new one:");
+            leftOrRight = sc.next();
         }
     }
 }
