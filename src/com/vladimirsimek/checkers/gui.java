@@ -7,6 +7,7 @@ import static com.vladimirsimek.checkers.Main.*;
 public class gui {
 
     public static int[] intCoordinates = new int[2];
+    public static int[] intCoordinatesMoveTo = new int[2];
 
     public static void drawGameName() {
         System.out.println("  _______           __                  __   ________                                ___                    _         \n" +
@@ -210,24 +211,25 @@ public class gui {
         }
 
         if (isValid) {
-            int[] intCoordinatesLeft = new int[2];
-            int[] intCoordinatesRight = new int[2];
             if (runTimeCycles % 2 == 0) {
                 if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesLeft[0] = intCoordinatesLeft[0]+1;
-                    intCoordinatesLeft[1] = intCoordinatesLeft[1]-1;
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]+1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]-1;
                 } else {
-                    intCoordinatesRight[0] = intCoordinatesRight[0]+1;
-                    intCoordinatesRight[1] = intCoordinatesRight[1]+1;
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]+1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]+1;
                 }
             } else {
                 if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesLeft[0] = intCoordinatesLeft[0]-1;
-                    intCoordinatesLeft[1] = intCoordinatesLeft[1]-1;
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]-1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]-1;
                 } else {
-                    intCoordinatesRight[0] = intCoordinatesRight[0]-1;
-                    intCoordinatesRight[1] =intCoordinatesRight[1]+1;
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]-1;
+                    intCoordinatesMoveTo[1] =intCoordinatesMoveTo[1]+1;
                 }
+            }
+            if() {
+
             }
         }
 
@@ -240,5 +242,9 @@ public class gui {
             System.out.println("Your input or side you have chosen is invalid. Enter a new one:");
             leftOrRight = sc.next();
         }
+    }
+    
+    public static void  move() {
+        
     }
 }
