@@ -1,10 +1,10 @@
 package com.vladimirsimek.checkers;
 
 import java.util.Locale;
-
+import static com.vladimirsimek.checkers.Logic.*;
 import static com.vladimirsimek.checkers.Main.*;
 
-public class gui {
+public class Gui {
 
     public static int[] intCoordinates = new int[2];
     public static int[] intCoordinatesMoveTo = new int[2];
@@ -227,9 +227,6 @@ public class gui {
                     intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]-1;
                     intCoordinatesMoveTo[1] =intCoordinatesMoveTo[1]+1;
                 }
-            }
-            if() {
-
             }
         }
 

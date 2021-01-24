@@ -2,7 +2,8 @@ package com.vladimirsimek.checkers;
 
 import java.util.Scanner;
 
-import static com.vladimirsimek.checkers.gui.*;
+import static com.vladimirsimek.checkers.Gui.*;
+import static com.vladimirsimek.checkers.Logic.*;
 
 public class Main {
 
