@@ -132,7 +132,7 @@ public class Gui {
         }
     } // Counts players and draws progress bar
 
-    public static boolean isLeftOrRightValidPlayer(String[][] fields, String leftOrRight) {
+    /*public static boolean isLeftOrRightValidPlayer(String[][] fields, String leftOrRight) {
         boolean isValid = false;
 
         String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
@@ -170,9 +170,5 @@ public class Gui {
             System.out.println("Your input or side you have chosen is invalid. Enter a new one:");
             leftOrRight = sc.next();
         }
-    }
-    
-    public static void  move() {
-        
-    }
+    }*/
 }

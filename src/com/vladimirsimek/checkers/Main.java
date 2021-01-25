@@ -61,15 +61,7 @@ public class Main {
             System.out.println("A) Left");
             System.out.println("B) Right");
             leftOrRight = sc.next();
-            if (isLeftOrRightValidPlayer(fields, leftOrRight)) {
-                move();
-            } else {
-                notValidLeftOrRight();
-                if (isLeftOrRightValidPlayer(fields, leftOrRight)) {
-                    move();
-                }
-            }
-
+            move(fields, leftOrRight);
                 System.out.println("END OF ROUND");
         }
     }
