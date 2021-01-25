@@ -82,20 +82,21 @@ public class Logic {
 
         if (runTimeCycles % 2 == 0) {
             if (lowLeftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
             } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
             }
         } else {
             if (lowLeftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
             } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
             }
+
         }
         if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)){
 
@@ -103,10 +104,8 @@ public class Logic {
 
             if (runTimeCycles % 2 == 0) {
                 fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
-            } else fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
-        } else {
-            do {
-                if ()
+            } else {
+                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
             }
         }
 
