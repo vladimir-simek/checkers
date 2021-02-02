@@ -7,6 +7,10 @@ import static com.vladimirsimek.checkers.Main.*;
 
 public class Logic {
 
+    public static int[] intCoordinates = new int[2];
+    public static int[] intCoordinatesMoveTo = new int[2];
+    public static int[] intCoordinatesMoveToHigher = new int[2];
+
     public static void areHerePlayers() {
         player2amount = 0;
         player1amount = 0;
@@ -78,37 +82,6 @@ public class Logic {
     } // Checks if input of coordination is valid
 
     public static void move(String[][] fields, String leftOrRight) {
-        String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-        intCoordinatesMoveTo[0] = intCoordinates[0];
-        intCoordinatesMoveTo[1] = intCoordinates[1];
-        if (runTimeCycles % 2 == 0) {
-            if (lowLeftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
-            } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-            }
-        } else {
-            if (lowLeftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
-            } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-            }
 
-        }
-
-        if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)){
-
-            fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
-
-            if (runTimeCycles % 2 == 0) {
-                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
-            } else {
-                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
-            }
-        }
     }
 }

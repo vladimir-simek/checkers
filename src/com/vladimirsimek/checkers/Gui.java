@@ -6,8 +6,7 @@ import static com.vladimirsimek.checkers.Main.*;
 
 public class Gui {
 
-    public static int[] intCoordinates = new int[2];
-    public static int[] intCoordinatesMoveTo = new int[2];
+
 
     public static void drawGameName() {
         System.out.println("  _______           __                  __   ________                                ___                    _         \n" +
