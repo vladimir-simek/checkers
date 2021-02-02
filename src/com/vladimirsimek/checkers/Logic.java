@@ -91,10 +91,10 @@ public class Logic {
             }
         } else {
             if (lowLeftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
             } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
                 intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
             }
 
@@ -110,6 +110,5 @@ public class Logic {
                 fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
             }
         }
-
     }
 }
