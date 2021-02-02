@@ -79,7 +79,8 @@ public class Logic {
 
     public static void move(String[][] fields, String leftOrRight) {
         String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-
+        intCoordinatesMoveTo[0] = intCoordinates[0];
+        intCoordinatesMoveTo[1] = intCoordinates[1];
         if (runTimeCycles % 2 == 0) {
             if (lowLeftOrRight.equals("a")) {
                 intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
@@ -98,6 +99,7 @@ public class Logic {
             }
 
         }
+
         if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)){
 
             fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;

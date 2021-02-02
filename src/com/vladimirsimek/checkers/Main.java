@@ -1,5 +1,6 @@
 package com.vladimirsimek.checkers;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 import static com.vladimirsimek.checkers.Gui.*;
@@ -61,8 +62,40 @@ public class Main {
             System.out.println("A) Left");
             System.out.println("B) Right");
             leftOrRight = sc.next();
-            move(fields, leftOrRight);
-                System.out.println("END OF ROUND");
+            String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
+            intCoordinatesMoveTo[0] = intCoordinates[0];
+            intCoordinatesMoveTo[1] = intCoordinates[1];
+            if (runTimeCycles % 2 == 0) {
+                if (lowLeftOrRight.equals("a")) {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
+                } else {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
+                }
+            } else {
+                if (lowLeftOrRight.equals("a")) {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
+                } else {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
+                }
+
+            }
+
+            if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)){
+
+                fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
+
+                if (runTimeCycles % 2 == 0) {
+                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
+                } else {
+                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
+                }
+            }
+
+            System.out.println("END OF ROUND");
         }
     }
 }
