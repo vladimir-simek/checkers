@@ -116,7 +116,7 @@ public class Main {
                 }
                 if (fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]].equals(BLACK_SPOT)) {
                     fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
-                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = BLACK_SPOT;
+                    fields[intCoordinatesMoveTo[0] - 1][intCoordinatesMoveTo[1] - 1] = BLACK_SPOT;
                     if (runTimeCycles % 2 == 0) {
                         fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_2;
                     } else {
