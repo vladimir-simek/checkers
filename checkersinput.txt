@@ -1,0 +1,13 @@
+
+Player 1 kills Player 2:
+	5,4
+	a
+	2,5
+	b
+	5,0
+	b
+	2,3
+	b
+	4,3
+	b
+
