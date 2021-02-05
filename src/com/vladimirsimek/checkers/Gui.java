@@ -1,6 +1,5 @@
 package com.vladimirsimek.checkers;
 
-import java.util.Locale;
 import static com.vladimirsimek.checkers.Logic.*;
 import static com.vladimirsimek.checkers.Main.*;
 
@@ -63,7 +62,7 @@ public class Gui {
         System.exit(0);
     } // Ends the game if Player 2 won
 
-    public static void drawProgressBars() {
+    /*public static void drawProgressBars() {
         player2amount = 0;
         player1amount = 0;
         for (String[] field : fields) {
@@ -129,17 +128,7 @@ public class Gui {
         } else if (player1amount == 0) {
             System.out.println("[########################] 100%");
         }
-    } // Counts players and draws progress bar
-
-    public static void notValidLeftOrRight() {
-        System.out.println("Input is invalid!");
-        System.out.println(row);
-        System.out.println("Now choose where you want to move:");
-        System.out.println("A) Left");
-        System.out.println("B) Right");
-        leftOrRight = sc.next();
-        leftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-    }
+    } // Counts players and draws progress bar */
 
 }
 

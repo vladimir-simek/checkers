@@ -1,7 +1,5 @@
 package com.vladimirsimek.checkers;
 
-import java.util.Locale;
-
 import static com.vladimirsimek.checkers.Gui.*;
 import static com.vladimirsimek.checkers.Main.*;
 
@@ -51,6 +49,8 @@ public class Logic {
             char a = rawCoordinates.charAt(0);
             char b = rawCoordinates.charAt(1);
             char c = rawCoordinates.charAt(2);
+
+
         } catch (Exception e) {
             isValid = false;
         }
@@ -81,11 +81,14 @@ public class Logic {
             }
         }
         return isValidData;
+
+
     } // Checks if input of coordination is valid
 
     public static void move(String[][] fields, String leftOrRight) {
         intCoordinatesMoveTo[0] = intCoordinates[0];
         intCoordinatesMoveTo[1] = intCoordinates[1];
+        if (leftOrRight.length() > 1) leftOrRightValid = false;
         try{
             if (runTimeCycles % 2 == 0) {
                 if (leftOrRight.equals("a")) {
@@ -146,13 +149,22 @@ public class Logic {
             }
 
 
-            System.out.println(intCoordinates[0] + " " + intCoordinates[1]);
-            System.out.println(intCoordinatesMoveTo[0] + " " + intCoordinatesMoveTo[1]);
-            System.out.println(intCoordinatesMoveToHigher[0] + " " + intCoordinatesMoveToHigher[1]);
+            //System.out.println(intCoordinates[0] + " " + intCoordinates[1]);
+            //System.out.println(intCoordinatesMoveTo[0] + " " + intCoordinatesMoveTo[1]);
+            //System.out.println(intCoordinatesMoveToHigher[0] + " " + intCoordinatesMoveToHigher[1]);
             leftOrRightValid = true;
         } catch (Exception e) {
             System.out.println("Invalid input.");
             leftOrRightValid = false;
         }
+        if (leftOrRight.length() > 1){
+            leftOrRightValid = false;
+            System.out.println("Invalid input.");
+        }
+
+    }
+
+    public boolean canMoveAgain() {
+        return true;
     }
 }
