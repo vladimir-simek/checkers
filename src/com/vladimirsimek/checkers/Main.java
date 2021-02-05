@@ -62,69 +62,8 @@ public class Main {
             System.out.println("A) Left");
             System.out.println("B) Right");
             leftOrRight = sc.next();
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-            intCoordinatesMoveTo[0] = intCoordinates[0];
-            intCoordinatesMoveTo[1] = intCoordinates[1];
-            if (runTimeCycles % 2 == 0) {
-                if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
-                } else {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-                }
-            } else {
-                if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
-                } else {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-                }
-
-            }
-
-            if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)){
-
-                fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
-
-                if (runTimeCycles % 2 == 0) {
-                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
-                } else {
-                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
-                }
-            } else if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(PLAYER_1) || fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(PLAYER_2)) {
-                intCoordinatesMoveToHigher = intCoordinatesMoveTo;
-                if (runTimeCycles % 2 == 0) {
-                    if (lowLeftOrRight.equals("a")) {
-                        intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
-                        intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
-                    } else {
-                        intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
-                        intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
-                    }
-                } else {
-                    if (lowLeftOrRight.equals("a")) {
-                        intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
-                        intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
-                    } else {
-                        intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
-                        intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
-                    }
-
-                }
-                if (fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]].equals(BLACK_SPOT)) {
-                    fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
-                    fields[intCoordinatesMoveTo[0] - 1][intCoordinatesMoveTo[1] - 1] = BLACK_SPOT;
-                    if (runTimeCycles % 2 == 0) {
-                        fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_2;
-                    } else {
-                        fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_1;
-                    }
-                }
-            }
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            leftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
+            move(fields, leftOrRight);
             System.out.println("END OF ROUND");
         }
     }
