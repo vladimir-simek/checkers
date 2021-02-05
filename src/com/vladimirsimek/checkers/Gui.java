@@ -131,44 +131,5 @@ public class Gui {
         }
     } // Counts players and draws progress bar
 
-    /*public static boolean isLeftOrRightValidPlayer(String[][] fields, String leftOrRight) {
-        boolean isValid = false;
-
-        String lowLeftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-
-        if (lowLeftOrRight.equals("a") || lowLeftOrRight.equals("b")) {
-            isValid = true;
-        }
-
-        if (isValid) {
-            if (runTimeCycles % 2 == 0) {
-                if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]+1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]-1;
-                } else {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]+1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]+1;
-                }
-            } else {
-                if (lowLeftOrRight.equals("a")) {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]-1;
-                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1]-1;
-                } else {
-                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0]-1;
-                    intCoordinatesMoveTo[1] =intCoordinatesMoveTo[1]+1;
-                }
-            }
-        }
-
-        return isValid;
-    }
-
-    public static void notValidLeftOrRight() {
-        while (!isLeftOrRightValidPlayer(fields, rawCoordinates)) {
-            System.out.println(row);
-            System.out.println("Your input or side you have chosen is invalid. Enter a new one:");
-            leftOrRight = sc.next();
-        }
-    }*/
 }
 
