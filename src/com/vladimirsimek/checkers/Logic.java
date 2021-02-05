@@ -11,6 +11,8 @@ public class Logic {
     public static int[] intCoordinatesMoveTo = new int[2];
     public static int[] intCoordinatesMoveToHigher = new int[2];
 
+    public static boolean leftOrRightValid = false;
+
     public static void areHerePlayers() {
         player2amount = 0;
         player1amount = 0;
@@ -84,68 +86,73 @@ public class Logic {
     public static void move(String[][] fields, String leftOrRight) {
         intCoordinatesMoveTo[0] = intCoordinates[0];
         intCoordinatesMoveTo[1] = intCoordinates[1];
-        if (runTimeCycles % 2 == 0) {
-            if (leftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
+        try{
+            if (runTimeCycles % 2 == 0) {
+                if (leftOrRight.equals("a")) {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
+                } else {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
+                }
             } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] + 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-            }
-        } else {
-            if (leftOrRight.equals("a")) {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
-            } else {
-                intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
-                intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
-            }
-        }
-
-        intCoordinatesMoveToHigher[0] = intCoordinatesMoveTo[0];
-        intCoordinatesMoveToHigher[1] = intCoordinatesMoveTo[1];
-
-        if (runTimeCycles % 2 == 0) {
-            if (leftOrRight.equals("a")) {
-                intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
-                intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
-            } else {
-                intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
-                intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
-            }
-        } else {
-            if (leftOrRight.equals("a")) {
-                intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
-                intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
-            } else {
-                intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
-                intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
+                if (leftOrRight.equals("a")) {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] - 1;
+                } else {
+                    intCoordinatesMoveTo[0] = intCoordinatesMoveTo[0] - 1;
+                    intCoordinatesMoveTo[1] = intCoordinatesMoveTo[1] + 1;
+                }
             }
 
-        }
-
-        if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)) {
-            fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
+            intCoordinatesMoveToHigher[0] = intCoordinatesMoveTo[0];
+            intCoordinatesMoveToHigher[1] = intCoordinatesMoveTo[1];
 
             if (runTimeCycles % 2 == 0) {
-                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
+                if (leftOrRight.equals("a")) {
+                    intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
+                    intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
+                } else {
+                    intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] + 1;
+                    intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
+                }
             } else {
-                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
+                if (leftOrRight.equals("a")) {
+                    intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
+                    intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] - 1;
+                } else {
+                    intCoordinatesMoveToHigher[0] = intCoordinatesMoveToHigher[0] - 1;
+                    intCoordinatesMoveToHigher[1] = intCoordinatesMoveToHigher[1] + 1;
+                }
+
             }
-        } else if (fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]].equals(BLACK_SPOT)) {
-            fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = BLACK_SPOT;
-            fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
-            if (runTimeCycles % 2 == 0) {
-                fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_2;
-            } else {
-                fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_1;
+
+            if (fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]].equals(BLACK_SPOT)) {
+                fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
+
+                if (runTimeCycles % 2 == 0) {
+                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_2;
+                } else {
+                    fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = PLAYER_1;
+                }
+            } else if (fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]].equals(BLACK_SPOT)) {
+                fields[intCoordinatesMoveTo[0]][intCoordinatesMoveTo[1]] = BLACK_SPOT;
+                fields[intCoordinates[0]][intCoordinates[1]] = BLACK_SPOT;
+                if (runTimeCycles % 2 == 0) {
+                    fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_2;
+                } else {
+                    fields[intCoordinatesMoveToHigher[0]][intCoordinatesMoveToHigher[1]] = PLAYER_1;
+                }
             }
+
+
+            System.out.println(intCoordinates[0] + " " + intCoordinates[1]);
+            System.out.println(intCoordinatesMoveTo[0] + " " + intCoordinatesMoveTo[1]);
+            System.out.println(intCoordinatesMoveToHigher[0] + " " + intCoordinatesMoveToHigher[1]);
+            leftOrRightValid = true;
+        } catch (Exception e) {
+            System.out.println("Invalid input.");
+            leftOrRightValid = false;
         }
-
-
-
-        System.out.println(intCoordinates[0] + " " + intCoordinates[1]);
-        System.out.println(intCoordinatesMoveTo[0] + " " + intCoordinatesMoveTo[1]);
-        System.out.println(intCoordinatesMoveToHigher[0] + " " + intCoordinatesMoveToHigher[1]);
     }
 }

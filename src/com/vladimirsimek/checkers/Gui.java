@@ -131,5 +131,15 @@ public class Gui {
         }
     } // Counts players and draws progress bar
 
+    public static void notValidLeftOrRight() {
+        System.out.println("Input is invalid!");
+        System.out.println(row);
+        System.out.println("Now choose where you want to move:");
+        System.out.println("A) Left");
+        System.out.println("B) Right");
+        leftOrRight = sc.next();
+        leftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
+    }
+
 }
 

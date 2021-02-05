@@ -61,9 +61,12 @@ public class Main {
             System.out.println("Now choose where you want to move:");
             System.out.println("A) Left");
             System.out.println("B) Right");
-            leftOrRight = sc.next();
-            leftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
-            move(fields, leftOrRight);
+            while (!leftOrRightValid) {
+                leftOrRight = sc.next();
+                leftOrRight = leftOrRight.toLowerCase(Locale.ROOT);
+                move(fields, leftOrRight);
+            }
+            leftOrRightValid = false;
             System.out.println("END OF ROUND");
         }
     }
