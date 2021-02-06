@@ -62,7 +62,7 @@ public class Gui {
         System.exit(0);
     } // Ends the game if Player 2 won
 
-    /*public static void drawProgressBars() {
+    public static void drawProgressBars() {
         player2amount = 0;
         player1amount = 0;
         for (String[] field : fields) {
@@ -128,7 +128,7 @@ public class Gui {
         } else if (player1amount == 0) {
             System.out.println("[########################] 100%");
         }
-    } // Counts players and draws progress bar */
+    } // Counts players and draws progress bar
 
 }
 

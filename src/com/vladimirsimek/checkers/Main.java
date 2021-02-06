@@ -38,7 +38,7 @@ public class Main {
         while (playersLeft) {
             canMove = true;
             System.out.println(row);
-            //drawProgressBars();
+            drawProgressBars();
             System.out.println(row);
             drawFields(fields);
             runTimeCycles++;
